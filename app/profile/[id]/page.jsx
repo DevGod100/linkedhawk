@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 
-import Profile from "@components/Profile";
+import FullProfile from "@components/FullProfile";
 
 const UserProfile = ({ params }) => {
   const searchParams = useSearchParams();
@@ -23,9 +23,9 @@ const UserProfile = ({ params }) => {
   }, [params.id]);
 
   return (
-    <Profile
+    <FullProfile
       name={userName}
-      desc={`Welcome to ${userName}'s personalized profile page. Explore ${userName}'s exceptionalEmployment Profile`}
+      desc={`Welcome to ${userName}'s Resume.`}
       data={userPosts}
     />
   );

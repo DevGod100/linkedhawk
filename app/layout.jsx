@@ -1,29 +1,34 @@
 import "@styles/globals.css";
 
-import Nav from '@components/Nav';
-import Provider from '@components/Provider';
+import MainNav from '@components/menus/MainNav';
 
-//SEO next.js tech
+import Provider from '@components/Provider';
+// import UserSignIn from "@components/UserSignIn";
+// //SEO next.js tech
 export const metadata = {
     title: "LinkedHawk",
-    description: "Filter through thousands of candidates and find your next hire!"
+    description: "Filter through thousands of candidates and find your next hiree!"
 }
 
 const RootLayout = ({ children }) => {
   return (
     <html lang='en'>
+      <link
+        rel="icon"
+        href="/icon?<generated>"
+        type="image/<generated>"
+        sizes="<generated>"
+      />
+
         <body>
         <Provider>
-            <div className='main'>
-            <div  className='gradient'/>
-            </div>
-            
-            <main className='app'>
-            <Nav />
-               {children}
-            </main>
+            <MainNav />
+            {/* <UserSignIn/> */}
+              {children}
             </Provider>
         </body>
+
+
     </html>
   )
 }

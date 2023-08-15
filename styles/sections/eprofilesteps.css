@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.multi_step_form {
+    @apply my-0 p-0 w-full h-screen;
+  }
+
+.progress_bar {
+    @apply mt-8 w-[400px] h-[8px] bg-white border-[2px] rounded-lg;
+
+  }
+
+  .multi_step_footer {
+    @apply flex justify-between m-5;
+}
+
+.step_nav_btn {
+    @apply text-xl mx-10 px-4 py-1  bg-white rounded-xl text-black border-solid border-black border-2;
+  transition: all 0.3s ease-in-out;
+}
+
+.step_nav_btn:hover {
+    transform: translate(-0px, -2px)
+}
+
+
+.multi_step_body {
+    @apply w-full  flex flex-col p-20 items-center;
+  }
+
+  .smooth_trans_3s {
+  transition: all 0.3s ease-in-out;
+}
+
+.smooth_trans_1s {
+  transition: all 0.1s ease-in-out;
+}
+
+
+.step_form_input {
+  @apply w-full max-w-lg flex rounded-lg mt-2 p-3 text-2xl placeholder-gray-500 text-black outline-0 border border-gray-500 focus:border-black;
+}
+
+
+.select_form_input {
+  @apply min-w-max w-full max-w-lg rounded-lg mt-2 p-3 text-2xl placeholder-gray-500 text-black ;
+}
+
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 0.5s ease-in forwards;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

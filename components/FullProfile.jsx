@@ -1,13 +1,13 @@
-import EmploymentCard from "./EmploymentCard"
+import LongEmploymentCard from "./LongEmploymentCard"
 
 const Profile = ({ name, desc, data, handleEdit, handleDelete }) => {
   return (
-    <section className="w-full">
+    <section className="m-10">
       <h1 className="head_text text-left"><span className="blue_gradient">{name} Profile</span></h1>
       <p className="desc text-left">{desc}</p>
-      <div className="Full__eprofile__layout">
+      <div className="mt-10 p-8 border border-gray-100 shadow-lg rounded-md">
     {data.map((post) => (
-      <EmploymentCard 
+      <LongEmploymentCard 
       key={post._id}
       post={post}
       handleEdit={() => handleEdit(post)}

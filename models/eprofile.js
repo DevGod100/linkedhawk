@@ -11,7 +11,7 @@ const EprofileSchema = new Schema({
   language: {
     type: String,
   },
-  proffesion: {
+  profession: {
     type: String,
   },
   location: {

@@ -4,7 +4,8 @@ import {useState} from 'react';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 
-import Form from '@components/Form';
+import EprofileSteps from '@components/multi-step-form/EprofileSteps';
+
 
 const CreateEprofile = () => {
     const router = useRouter();
@@ -13,7 +14,7 @@ const CreateEprofile = () => {
     const [post, setPost] = useState({
         ename: '',
         language: '',
-        proffesion: '',
+        profession: '',
         location: '',
         salary: '',
     });
@@ -30,7 +31,7 @@ const CreateEprofile = () => {
                 ename: post.ename,
                 tag: post.tag,
                 language: post.language,
-                proffesion: post.proffesion,
+                profession: post.profession,
                 location: post.location,
                 salary: post.salary,
               })
@@ -48,7 +49,7 @@ const CreateEprofile = () => {
     }
 
   return (
-    <Form 
+<EprofileSteps
     type="Create"
     post={post}
     setPost={setPost}

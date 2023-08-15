@@ -1,11 +1,10 @@
 "use client"
 import Link from 'next/link'
 import Image from 'next/image'
-import {useState, useEffect} from 'react'
+import {useState, useEffect, useRef} from 'react'
 import {signIn, signOut, useSession, getProviders} from'next-auth/react'
 
 const Nav = () => {
-  //mock test
   const {data: session} = useSession();
   const [providers, setProviders] = useState(null);
   const [toggleDropdown, setToggleDropdown] = useState(false);
@@ -18,9 +17,25 @@ const Nav = () => {
   }
   setUpProviders();
   },[])
+  
+
+  const navRef = useRef(null);
+  useEffect(() => {
+    const handleOutsideClick = (e) => {
+      if (navRef.current && !navRef.current.contains(e.target)) {
+        setToggleDropdown(false);
+      }
+    };
+
+    window.addEventListener('click', handleOutsideClick);
+    return () => {
+      window.removeEventListener('click', handleOutsideClick);
+    };
+  }, []);
+
 
   return (
-    <nav className='flex-between w-full mb-16 pt-3'>
+    <nav className='flex-between w-full mb-16 pt-3 px-5 pb-2 border-b border-gray-300' ref={navRef}>
       <Link href='/' className='flex gap-2 flex-center'>
       <Image 
       src='/assets/images/logo.svg'
@@ -28,15 +43,17 @@ const Nav = () => {
       width={127}
       height={32}
       className='object-contain'
+      priority
       />
-      {/* <p className='logo_text'>LinkedHawk</p> */}
     </Link>
+
+
     {/* desktop navigation */}
-    <div className='sm:flex hidden'>
-      {session?.user ? (
+    {/* <div className='sm:flex hidden'> */}
+      {/* {session?.user ? (
         <div className='flex gap-3 md:gap-5'>
           {/* <Link href='/candidates-search' className='black_btn'>Find candidates</Link> */}
-          <Link href='/create-eprofile'
+          {/* <Link href='/create-eprofile'
           className='black_btn'> Create Employment Profile</Link>
           <button type='button' onClick={signOut} className='outline_btn'>Sign out</button>
           <Link href='/profile'>
@@ -49,9 +66,8 @@ const Nav = () => {
             />
           </Link>
         </div>
-      ): (
-        //empty react fragment placeholder
-        <>
+      ): ( */}
+        {/* <>
         {providers &&
         Object.values(providers).map((provider) => (
           <button
@@ -66,11 +82,26 @@ const Nav = () => {
         }
         </>
       )}
-    </div>
+    </div> */} 
     {/* mobile navigation */}
-    <div className='sm:hidden flex relative'>
+    {/* <div className='sm:hidden flex relative'> */}
+
+    
+
+    {/* temporary */}
+    {/* {session?.user && (
+    <div className='flex gap-3 justify-end'>
+          <Link href='/candidates-search' className='black_btn'>Find candidates</Link>
+          <Link href='/create-eprofile'
+          className='black_btn'> Create Employment Profile</Link>
+    </div>
+      )} */}
+
+      
+      
+    <div className='flex relative'>
       {session?.user ? (
-        <div className='flex'>
+        <div className='flex z-10'>
          <Image
           src={session?.user.image}
           width={37}
@@ -94,8 +125,9 @@ const Nav = () => {
             className='dropdown_link'
             onClick={() => setToggleDropdown(false)}
             >
-              Create Employment Profile
+              Add Employment Profile
             </Link>
+            <a href="https://linkedhawk.frill.co/roadmap">RoadMap</a>
             <button
             type='button'
             onClick={() => {toggleDropdown(false)

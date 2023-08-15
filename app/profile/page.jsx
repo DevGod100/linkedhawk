@@ -4,11 +4,8 @@ import { useState, useEffect } from "react"
 import { useSession } from "next-auth/react"
 import { useRouter } from "next/navigation"
 
-import Profile from "@components/Profile"
+import FullProfile from "@components/FullProfile"
 
-// export const metadata = {
-//   title: "Profile"
-// }
 
 const MyProfile = () => {
   const router = useRouter();
@@ -32,7 +29,7 @@ const MyProfile = () => {
 
 
     const handleEdit = (post) => {
-     router.push(`/update-prompt?id=${post._id}`);
+     router.push(`/update-eprofile?id=${post._id}`);
     }
 
     const handleDelete = async (post) => {
@@ -55,8 +52,8 @@ const MyProfile = () => {
     }
 
   return (
-    <Profile 
-    name='My'
+    <FullProfile 
+    name='My Employment'
     desc='Welcome to your Personalized profile page'
     data={posts}
     handleEdit={handleEdit}

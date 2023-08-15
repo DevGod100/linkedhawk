@@ -1,5 +1,8 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
+# local useless files that were from original code might be useful - highly unlikely
+/oldComponents
+
 # dependencies
 /node_modules
 /.pnp

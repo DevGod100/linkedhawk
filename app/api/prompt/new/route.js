@@ -2,7 +2,7 @@ import { connectToDB } from "@utils/database";
 import Eprofile from "@models/eprofile";
 
 export const POST = async (req) => {
-    const {userId, ename, language, proffesion, location, salary} = await req.json();
+    const {userId, ename, language, profession, location, salary} = await req.json();
 
     try {
       await connectToDB();
@@ -10,9 +10,9 @@ export const POST = async (req) => {
         creator: userId,
         ename,
         language, 
-        proffesion, 
+        profession, 
         location, 
-        salary
+        salary,
       })
       await newEprofile.save();
       

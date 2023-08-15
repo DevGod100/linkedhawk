@@ -16,8 +16,14 @@ module.exports = {
         'primary-blue-light': '#2196F3',
         'primary-blue': '#1565C0',
        'primary-blue-dark': '#0D47A1',
+      },
+      backgroundColor: {
+        'mercury-gray': '#d3d6e9'
       }
     },
   },
-  plugins: [],
+  plugins: [
+    require("flowbite/plugin")
+
+  ],
 }

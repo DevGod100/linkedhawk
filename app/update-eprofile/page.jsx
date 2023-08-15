@@ -24,7 +24,7 @@ const EditEprofile = () => {
         setPost({
             ename: data.ename,
             language: data.language,
-            proffesion: data.proffesion,
+            profession: data.profession,
             location: data.location,
             salary: data.salary,
         })
@@ -44,7 +44,7 @@ const EditEprofile = () => {
         body: JSON.stringify({
             ename: post.ename,
             language: post.language,
-            proffesion: post.proffesion,
+            profession: post.profession,
             location: post.location,
             salary: post.salary,
           })

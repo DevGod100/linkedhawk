@@ -18,7 +18,7 @@ export const GET = async (request, { params }) => {
 
 //PATCH - update
 export const PATCH = async (request, { params }) => {
-   const {ename, language, proffesion, location, salary} = await request.json();
+   const {ename, language, profession, location, salary} = await request.json();
 
    try {
     await connectToDB();
@@ -28,7 +28,7 @@ export const PATCH = async (request, { params }) => {
 
     existingEprofile.ename = ename;
     existingEprofile.language = language;
-    existingEprofile.proffesion = proffesion;
+    existingEprofile.profession = profession;
     existingEprofile.location = location;
     existingEprofile.salary = salary;
 

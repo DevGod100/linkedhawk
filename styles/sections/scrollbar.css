@@ -1,0 +1,15 @@
+/* Custom scrollbar styles */
+::-webkit-scrollbar {
+    width: 0.6rem;
+    display: none;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: blue;
+    border-radius: 3rem;
+}
+  
+  ::-webkit-scrollbar-track {
+    background-color: transparent;
+    width: 1.5rem;
+  }
